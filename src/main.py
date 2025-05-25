@@ -1,5 +1,5 @@
 from datetime import datetime
-tasks=[dict]
+tasks=[]
 def add_task(task,priority):
     task_object={"task":task,"is_completed":False,"time":datetime.now(),"priority":priority}              
     tasks.append(task_object)
@@ -13,6 +13,14 @@ def list_task():
         for index, task in enumerate (tasks):
             print(task)
 
+def delete_task():
+    index=int(input("enter the task number to delete"))
+    if 0 <= index < len(tasks):
+        deleted_task=tasks.pop(index)
+        print(f"Deleted task :  {deleted_task['task']}")
+
+
+
 if __name__=="__main__":
     while True:
         user_task=input("Enter the task (or type exit): ")
@@ -23,4 +31,5 @@ if __name__=="__main__":
         
 
     list_task()
+    delete_task()
       
